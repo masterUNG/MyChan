@@ -2,6 +2,7 @@ package appewtc.masterung.mychan;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -32,6 +33,39 @@ public class ManageTABLE {
         readSqLiteDatabase = objMyOpenHelper.getReadableDatabase();
 
     }   // Constructor
+
+    //Search Title
+    public String[] searchTitle(String strTitle) {
+
+        try {
+
+            String[] strResult = null;
+            Cursor objCursor = readSqLiteDatabase.query(TABLE_CHAN,
+                    new String[]{COLUMN_ID, COLUMN_CATEGORY, COLUMN_TITLE, COLUMN_HEAD, COLUMN_SOURCE, COLUMN_LAT, COLUMN_LNG, COLUMN_REVIEW},
+                    COLUMN_TITLE + "=?",
+                    new String[]{String.valueOf(strTitle)},
+                    null, null, null, null);
+
+            if (objCursor != null) {
+                if (objCursor.moveToFirst()) {
+
+                    strResult = new String[objCursor.getColumnCount()];
+                    for (int i=0;i<objCursor.getColumnCount();i++) {
+
+                        strResult[i] = objCursor.getString(i);
+
+                    }   // for
+                }   // if2
+            }   // if1
+            objCursor.close();
+            return strResult;
+
+        } catch (Exception e) {
+            return null;
+        }
+
+        //return new String[0];
+    }
 
     //Add New Value to SQLite
     public long addValue(String strCategory, String strTitle, String strHead, String strDetail, String strSource, String strLat, String strLng, String strReview) {
