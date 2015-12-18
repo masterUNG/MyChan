@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by masterUNG on 11/16/15 AD.
  */
-public class MyOpenHelper extends SQLiteOpenHelper{
+public class MyOpenHelper extends SQLiteOpenHelper {
 
     //Explicit
     public static final String DATABASE_NAME = "chan.db";
