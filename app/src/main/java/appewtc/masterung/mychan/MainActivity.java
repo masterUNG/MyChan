@@ -3,16 +3,25 @@ package appewtc.masterung.mychan;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
     //Explicit
     private ManageTABLE objManageTABLE;
+    private EditText searchTitleEditText;
+    private Spinner categorySpinner;
+    private ListView titleListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Bind Widget
+
 
         //Connected Database
         objManageTABLE = new ManageTABLE(this);

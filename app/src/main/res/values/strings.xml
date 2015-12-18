@@ -2,5 +2,6 @@
     <string name="app_name">My Chan</string>
 
     <string name="head1">ค้นหา สถานที่ท่องเทียว</string>
+    <string name="search">พิมพ์ สถานที่ ที่จะค้นหา</string>
 
 </resources>
